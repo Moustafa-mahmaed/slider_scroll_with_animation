@@ -56,27 +56,67 @@ const {width ,height}=Dimensions.get("window");
 export default class App extends Component {
   _scrollX =new Animated.Value(0)
   renderItem =(item ,i)=>{
+    const inputRange =[
+      (i - 2) *width,
+      (i - 1) *width, 
+      i *width,
+      (i +1 ) *width,
+    ];
+    const imageScale=this._scrollX.interpolate({
+      inputRange,
+      outputRange:[1 ,.4,1,.4]
+    })
+     const imageOpacity=this._scrollX.interpolate({
+      inputRange,
+      outputRange:[1 ,.2,1,.2]
+    })
     return(
       <View key={item.id} style={[styles.container ,styles.item]}>
-      <Image 
-      style={styles.image}
+      <Animated.Image 
+      style={[styles.image ,{
+        transform:[{  scale:imageScale}],
+        opacity:imageOpacity
+      }]}
        source={{uri: item.urlimg}} />
-     <View style={styles.metacontainer}>
+     <Animated.View style={[styles.metacontainer ,{opacity:imageOpacity}]}>
       <Text style={[styles.font ,styles.title]}>{item.title}</Text>
       <Text style={[styles.font ,styles.subTite]} >{item.subTite}</Text>
       <Text style={[styles.font ,styles.description]} >{item.description}</Text>
        <Text style={[styles.font , styles.price]}>{item.price}</Text>
-     </View>
-     {this.renderRadiusGradient(item.bg)}
+     </Animated.View>
+     {this.renderRadiusGradient(item.bg ,inputRange)}
       </View>
     )
 
   }
 
 
-  renderRadiusGradient =(color) =>{
+  renderRadiusGradient =(color ,inputRange) =>{
+    const rotate=this._scrollX.interpolate({
+      
+      inputRange,
+      outputRange:["0deg", "-15deg" ,"0deg" ,"15deg"]
+    });
+    const translateX=this._scrollX.interpolate({
+      
+      inputRange,
+      outputRange:[0, width ,0 ,-width]
+    });
+
+      const opacity=this._scrollX.interpolate({
+      inputRange,
+      outputRange:[1 ,.5,1,.5]
+    });
     return(
-      <View style={styles.svgContainer}>
+      <Animated.View 
+      style={[ styles.svgContainer
+      ,{
+        transform:
+      [ { rotate },{ translateX } ] 
+      ,
+      opacity
+      }
+      ]}>
       <Svg height={height} 
       width={width} 
       style={styles.bgRadialGradient} >
@@ -102,7 +142,7 @@ export default class App extends Component {
   />
       
       </Svg>
-      </View>
+      </Animated.View>
     )
   }
   render() {
@@ -172,7 +212,7 @@ const styles=StyleSheet.create({
       fontWeight:"400"
   },
   font:{
-    color:"#222"
+    color:"white"
 
   },
   image:{
