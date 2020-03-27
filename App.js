@@ -19,32 +19,32 @@ const {width ,height}=Dimensions.get("window");
  const product_data=[
     {
         id:"1",
-        title:"TMA-2 HD Wireless",
-        subTite:"Wireless" ,
+        title:"TMA-2 Car 1",
+        subTite:"Car audi" ,
         description:"The ultimate listening experience. Highly detailed and precise sound representation, wirelessly transmitted ",
-        price:"25$",
+        price:"2700000$",
         bg:"#16cdc1",
-        urlimg:"https://6f836c397566f8a68572-e2de800189bc8603e0746245fbc4e3cb.ssl.cf3.rackcdn.com/tma-2-hd-wireless-IigQOPQt-large.png"
+        urlimg:"https://pngimg.com/uploads/tesla_car/tesla_car_PNG24.png"
 
     },
     {
         id:"2",
-        title:"TMA-2 HD Wireless 2",
-        subTite:"Wireless 2" ,
+        title:"TMA-2 HD Car 2",
+        subTite:"Car  2" ,
         description:"The ultimate listening experience. Highly detailed and precise sound representation, wirelessly transmitted ",
-        price:"20$",
+        price:"2000000$",
         bg:"purple",
-        urlimg:"https://6f836c397566f8a68572-e2de800189bc8603e0746245fbc4e3cb.ssl.cf3.rackcdn.com/tma-2-hd-DnUVYeYY-large.png"
+        urlimg:"https://img.pngio.com/lamborghini-car-png-images-free-download-lamborghini-cars-png-624_300.png"
 
     },
     {
         id:"3",
-        title:"TMA-2 HD Wireless",
-        subTite:"Wireless" ,
+        title:"TMA-2 Car 3",
+        subTite:"Car 3" ,
         description:"The ultimate listening experience. Highly detailed and precise sound representation, wirelessly transmitted ",
-        price:"25$",
+        price:"2500000$",
         bg:"red",
-        urlimg:"https://6f836c397566f8a68572-e2de800189bc8603e0746245fbc4e3cb.ssl.cf3.rackcdn.com/tma-2-move-kua6P7RY-large.png"
+        urlimg:"https://pngimg.com/uploads/lamborghini/lamborghini_PNG10682.png"
 
     }
   
